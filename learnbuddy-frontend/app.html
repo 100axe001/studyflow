@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow - Learning Dashboard</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon_io/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="app-body">
+    <!-- V5 Floating Navigation -->
+    <div class="navbar-container" id="navbar-container">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    📚 <span>StudyFlow</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="app-main">
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view active">
+            <div class="dashboard-header">
+                <div class="user-greeting">
+                    <h2>Hey <span id="username-display">Learner</span>!</h2>
+                    <p>Ready to crush it today?</p>
+                </div>
+                <div class="header-actions">
+                    <a href="index.html" class="btn btn-outline-v5" title="Home">
+                        <i class="fas fa-home"></i><span class="btn-text">Home</span>
+                    </a>
+                    <a href="profile.html" class="btn btn-outline-v5" title="Profile">
+                        <i class="fas fa-user"></i><span class="btn-text">Profile</span>
+                    </a>
+                    <button id="logout-btn" class="btn btn-outline-v5" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i><span class="btn-text">Logout</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="quest-card card-v5">
+                    <div class="quest-header">
+                        <h3 id="quest-title">Today's Study Session</h3>
+                    </div>
+                    <div class="quest-content" id="quest-content">
+                        <div class="quest-placeholder"><i class="fas fa-spinner fa-spin"></i>
+                            <h4>Loading your session...</h4>
+                        </div>
+                    </div>
+                    <div class="quest-actions">
+                        <button id="next-question-btn" class="btn btn-primary btn-large">
+                            <i class="fas fa-arrow-right"></i>Continue Session
+                        </button>
+                    </div>
+                </div>
+
+                <div class="side-panel">
+                    <div class="progress-card card-v5">
+                        <h3>Your Stats</h3>
+                        <div class="user-stats-app">
+                            <div class="stat-item"><i class="fas fa-star"></i>
+                                <div class="stat-info"><span class="stat-value" id="xp-count">0</span><span
+                                        class="stat-label">Total XP</span></div>
+                            </div>
+                            <div class="stat-item"><i class="fas fa-fire"></i>
+                                <div class="stat-info"><span class="stat-value" id="streak-count">0</span><span
+                                        class="stat-label">Day Streak</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievements-card card-v5">
+                        <h3>Recent Achievements</h3>
+                        <div class="achievements-list" id="achievements-list">
+                            <div class="achievement-placeholder"><i class="fas fa-bullseye"></i>
+                                <p>Complete sessions to unlock achievements!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question View -->
+        <div id="question-view" class="view">
+            <div class="question-view-header">
+                <button id="back-to-dashboard-btn" class="btn btn-outline-v5">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </button>
+            </div>
+            <div class="question-container">
+                 <div class="question-card card-v5">
+                    <div class="question-meta">
+                        <div class="difficulty-display">
+                            <span id="difficulty-number">Lvl 1</span>
+                            <div id="difficulty-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-text" id="question-text">
+                        <p>Loading your personalized question...</p>
+                    </div>
+
+                    <div class="answer-section">
+                        <div class="form-group">
+                            <label for="user-answer" class="sr-only">Your Answer:</label>
+                            <textarea id="user-answer" placeholder="Type your answer here..." rows="4"></textarea>
+                        </div>
+                        <div class="answer-actions">
+                            <button id="submit-answer-btn" class="btn btn-primary"><i class="fas fa-paper-plane"></i>Submit</button>
+                            <button id="skip-question-btn" class="btn btn-outline-v5"><i class="fas fa-forward"></i>Skip Question</button>
+                        </div>
+                    </div>
+                    <div id="answer-feedback" class="answer-feedback hidden">
+                        <div class="feedback-content">
+                            <div class="feedback-icon" id="feedback-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="feedback-text">
+                                <h4 id="feedback-title">Great job!</h4>
+                                <p id="feedback-message">That's correct! You're doing amazing.</p>
+                                <div class="feedback-score"><span>Similarity Score: </span><span id="similarity-score">95%</span></div>
+                            </div>
+                        </div>
+                        <button id="continue-btn" class="btn btn-primary"><i class="fas fa-arrow-right"></i>Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals and Overlays -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-large"></div>
+            </div>
+            <p id="loading-text">Preparing your personalized question...</p>
+        </div>
+    </div>
+    <div id="error-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Oops! Something went wrong</h3><button id="error-modal-close-btn" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="error-modal-text">We encountered an issue. Please try again.</p>
+            </div>
+            <div class="modal-footer"><button id="error-modal-confirm-btn" class="btn btn-primary">Got it</button></div>
+        </div>
+    </div>
+    <div id="celebration" class="celebration hidden">
+        <div class="confetti"></div>
+        <div class="celebration-text">
+            <h2 id="celebration-title">Goal Reached! 🎯</h2>
+            <p id="celebration-message">You earned <span id="xp-earned">+10</span> XP!</p>
+        </div>
+    </div>
+    
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls-fab">
+        <button id="accessibility-fab-toggle" class="btn btn-primary" aria-label="Accessibility Settings" aria-expanded="false">
+            <i class="fas fa-universal-access"></i>
+        </button>
+        <div class="accessibility-options hidden" id="accessibility-options-popup">
+            <div class="control-group">
+                <label><i class="fas fa-font"></i> Font Size</label>
+                <div class="font-controls">
+                    <button id="decrease-font-btn" class="font-control-btn" aria-label="Decrease font size"><i class="fas fa-minus"></i></button>
+                    <button id="increase-font-btn" class="font-control-btn" aria-label="Increase font size"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+
+</html>
