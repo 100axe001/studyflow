@@ -7,16 +7,16 @@
 
 :root {
     /* Colors */
-    --primary-color: #4F46E5;
-    --primary-dark: #3730A3;
-    --primary-light: #818CF8;
-    --secondary-color: #0D9488;
+    --primary-color: #7C3AED;
+    --primary-dark: #5B21B6;
+    --primary-light: #A78BFA;
+    --secondary-color: #6366F1;
     --accent-color: #F59E0B;
-    --success-color: #22C55E;
+    --success-color: #16A34A;
     --warning-color: #F59E0B;
     --error-color: #EF4444;
-    --dark-color: #1E293B;
-    --light-color: #F8FAFC;
+    --dark-color: #1E1B2E;
+    --light-color: #F8F7FE;
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
     --gray-200: #e5e7eb;
@@ -29,9 +29,9 @@
     --gray-900: #111827;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #0D9488 100%);
-    --gradient-secondary: linear-gradient(135deg, #0D9488 0%, #F59E0B 100%);
-    --gradient-hero: linear-gradient(135deg, #4F46E5 0%, #0D9488 50%, #F59E0B 100%);
+    --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #6366F1 100%);
+    --gradient-secondary: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+    --gradient-hero: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
 
     /* Spacing */
@@ -68,7 +68,7 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.3);
+    --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);
 
     /* Transitions */
     --transition-fast: 0.15s ease;
@@ -76,15 +76,15 @@
     --transition-slow: 0.5s ease;
 
     /* === V5: PREMIUM REDESIGN VARIABLES === */
-    --bg-dark: #F8FAFC;
+    --bg-dark: #F8F7FE;
     --bg-card: #FFFFFF;
-    --border-color: #E2E8F0;
-    --border-glow: #4F46E5;
+    --border-color: #ECE9F6;
+    --border-glow: #7C3AED;
     
-    --accent-glow: #4F46E5;
-    --accent-cyan: #0D9488;
+    --accent-glow: #7C3AED;
+    --accent-cyan: #6366F1;
     --accent-orange: #F59E0B;
-    --text-primary: #1E293B;
+    --text-primary: #1E1B2E;
     --text-secondary: #64748B;
 }
 
@@ -122,7 +122,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #4a90e2;
+  border: 3px solid #7C3AED;
   background-color: #ccc;
   display: flex;
   align-items: center;
@@ -287,7 +287,7 @@ body {
 .logo-icon-v5 .shape2 {
     width: 60%;
     height: 60%;
-    background: #7b549b;
+    background: #7C3AED;
     border-radius: 2px 8px;
     position: absolute;
     right: 0;
@@ -484,7 +484,7 @@ body {
     width: 200px;
     height: 200px;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle at 40% 40%, #2a2a3a, #0A0A10);
+    background: radial-gradient(circle at 40% 40%, #5B21B6, #2E1065);
     border-radius: 50%;
     border: 1px solid var(--border-color);
     box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 10px 40px rgba(0,0,0,0.4);
@@ -496,7 +496,7 @@ body {
     transform: translate(-50%, -50%);
     width: 120px;
     height: 60px;
-    background: #0A0A10;
+    background: #2E1065;
     border-radius: 30px;
     overflow: hidden;
     border: 2px solid #000;
@@ -757,7 +757,7 @@ body {
     margin-right: var(--spacing-md);
 }
 .form-group input[type="file"]::file-selector-button:hover {
-    background: #15b1c9; 
+    background: #8B5CF6; 
 }
 
 

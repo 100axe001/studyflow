@@ -59,7 +59,7 @@ def seed_database():
             INSERT INTO users (username, email, password_hash, is_admin)
             VALUES (%s, %s, %s, TRUE) ON CONFLICT (username) DO NOTHING;
             """,
-            ("admin", "admin@learnbuddy.com", get_password_hash("adminpassword"))
+            ("admin", "admin@studyflow.com", get_password_hash("adminpassword"))
         )
 
         # Insert questions

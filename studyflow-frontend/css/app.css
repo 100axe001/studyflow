@@ -7,24 +7,24 @@
 
 :root {
     /* === PREMIUM REDESIGN VARIABLES === */
-    --bg-dark: #F8FAFC;
+    --bg-dark: #F8F7FE;
     --bg-card: #FFFFFF;
     --bg-input: #FFFFFF; 
-    --border-color: #E2E8F0;
-    --border-glow: #4F46E5;
+    --border-color: #ECE9F6;
+    --border-glow: #7C3AED;
     
-    --accent-glow: #4F46E5;
-    --accent-glow-rgb: 79, 70, 229;
-    --accent-cyan: #0D9488;
-    --accent-cyan-rgb: 13, 148, 136;
+    --accent-glow: #7C3AED;
+    --accent-glow-rgb: 124, 58, 237;
+    --accent-cyan: #6366F1;
+    --accent-cyan-rgb: 99, 102, 241;
     --accent-orange: #F59E0B; 
 
-    --text-primary: #1E293B;
+    --text-primary: #1E1B2E;
     --text-secondary: #64748B;
     --text-placeholder: #94A3B8;
 
-    --success-color: #22C55E;
-    --success-color-rgb: 34, 197, 94;
+    --success-color: #16A34A;
+    --success-color-rgb: 22, 163, 74;
     --error-color: #EF4444;
     --error-color-rgb: 239, 68, 68;
     

@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadProfileData() {
         // Assumption: The token is stored in localStorage after login.
         // You must ensure your login logic saves the token like this:
-        // localStorage.setItem('learnBuddyToken', data.access_token);
-        const token = localStorage.getItem('learnBuddyToken');
+        // localStorage.setItem('studyflowToken', data.access_token);
+        const token = localStorage.getItem('studyflowToken');
 
         if (!token) {
             // If no token is found, redirect to the login page.
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             // Clear user token and redirect to login
-            localStorage.removeItem('learnBuddyToken');
+            localStorage.removeItem('studyflowToken');
             window.location.href = 'auth.html';
         });
     }

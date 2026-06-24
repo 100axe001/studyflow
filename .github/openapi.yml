@@ -3,7 +3,7 @@ openapi: 3.0.0
 
 # This is the cover of your menu. The restaurant's name and menu edition.
 info:
-  title: LearnBuddy API
+  title: StudyFlow API
   version: 1.0.0
 
 # This starts the main list of all the things a waiter can request from the kitchen.

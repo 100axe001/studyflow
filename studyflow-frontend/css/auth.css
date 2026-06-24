@@ -7,16 +7,16 @@
 
 :root {
     /* Colors */
-    --primary-color: #4F46E5;
-    --primary-dark: #3730A3;
-    --primary-light: #818CF8;
-    --secondary-color: #0D9488;
+    --primary-color: #7C3AED;
+    --primary-dark: #5B21B6;
+    --primary-light: #A78BFA;
+    --secondary-color: #6366F1;
     --accent-color: #F59E0B;
-    --success-color: #22C55E;
+    --success-color: #16A34A;
     --warning-color: #F59E0B;
     --error-color: #EF4444;
-    --dark-color: #1E293B;
-    --light-color: #F8FAFC;
+    --dark-color: #1E1B2E;
+    --light-color: #F8F7FE;
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
     --gray-200: #e5e7eb;
@@ -66,19 +66,19 @@
     --transition-slow: 0.5s ease;
 
     /* === V5: PREMIUM REDESIGN VARIABLES === */
-    --bg-dark: #F8FAFC;
+    --bg-dark: #F8F7FE;
     --bg-card: #FFFFFF;
-    --border-color: #E2E8F0;
-    --border-glow: #4F46E5;
-    --accent-glow: #4F46E5;
-    --accent-cyan: #0D9488;
+    --border-color: #ECE9F6;
+    --border-glow: #7C3AED;
+    --accent-glow: #7C3AED;
+    --accent-cyan: #6366F1;
     --accent-orange: #F59E0B;
-    --text-primary: #1E293B;
+    --text-primary: #1E1B2E;
     --text-secondary: #64748B;
 
     /* RGB versions for rgba() */
     --error-color-rgb: 239, 68, 68;
-    --success-color-rgb: 34, 197, 94;
+    --success-color-rgb: 22, 163, 74;
 }
 
 html {
@@ -122,11 +122,11 @@ body {
 .btn-primary {
     background: var(--primary-color);
     color: white;
-    box-shadow: 0 1px 3px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 1px 3px rgba(124, 58, 237, 0.2);
 }
 .btn-primary:hover:not(:disabled) {
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
 }
 
 .btn-link {
@@ -206,7 +206,7 @@ body {
 }
 .input-wrapper input:focus {
     outline: none; border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
 }
 .input-wrapper input::placeholder { color: var(--gray-400); }
 
@@ -246,7 +246,7 @@ body {
     font-size: 0.9rem;
 }
 .error-message { background: rgba(239, 68, 68, 0.1); color: var(--error-color); border-color: rgba(239, 68, 68, 0.3); }
-.success-message { background: rgba(34, 197, 94, 0.1); color: var(--success-color); border-color: rgba(34, 197, 94, 0.3); }
+.success-message { background: rgba(22, 163, 74, 0.1); color: var(--success-color); border-color: rgba(22, 163, 74, 0.3); }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 

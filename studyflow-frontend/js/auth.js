@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // *** CHANGE HERE: Standardize the token key ***
-            localStorage.setItem('learnBuddyToken', data.access_token);
+            localStorage.setItem('studyflowToken', data.access_token);
             const username = new FormData(loginForm).get('username');
             localStorage.setItem('username', username);
 
