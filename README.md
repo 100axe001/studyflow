@@ -62,8 +62,8 @@ It ships as a containerized FastAPI backend, a PostgreSQL database, and a lightw
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/akshajtiwari/t-w.git
-cd t-w
+git clone https://github.com/100axe001/studyflow.git
+cd studyflow
 ```
 
 ### 2. Build and start the stack
@@ -100,11 +100,13 @@ The frontend is a set of static pages in `studyflow-frontend/`. Serve them with 
 ## 🗺️ Roadmap
 
 **Near term**
+
 - [ ] Additional learning modules (Reading Comprehension, Science, History)
 - [ ] Progress dashboards for parents and educators
 - [ ] Collaborative "study group" challenges
 
 **Later**
+
 - [ ] Internationalization (i18n)
 - [ ] Smarter topic recommendations and learning-gap detection
 - [ ] CI/CD pipeline for automated testing and deployment
@@ -117,14 +119,19 @@ The frontend is a set of static pages in `studyflow-frontend/`. Serve them with 
 Contributions of all kinds are welcome — code, design, content, docs, and bug reports.
 
 1. Fork the repository and create a feature branch:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
+
 2. Commit your changes with a clear message:
+
    ```bash
    git commit -m "feat: add your feature"
    ```
+
 3. Push and open a Pull Request:
+
    ```bash
    git push origin feature/your-feature-name
    ```
