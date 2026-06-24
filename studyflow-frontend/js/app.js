@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Configuration & State ---
     const API_BASE_URL = 'http://localhost:8000';
     // *** CHANGE HERE: Use the standardized token key ***
-    const token = localStorage.getItem('learnBuddyToken'); 
+    const token = localStorage.getItem('studyflowToken'); 
     const username = localStorage.getItem('username');
     let currentQuestion = null;
     let lessonId = 1; // Assuming a default lesson ID
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Core Functions ---
     const logout = () => {
-        localStorage.removeItem('learnBuddyToken');
+        localStorage.removeItem('studyflowToken');
         localStorage.removeItem('username');
         window.location.href = 'index.html';
     };

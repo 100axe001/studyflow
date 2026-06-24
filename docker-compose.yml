@@ -4,7 +4,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://user:password@db:5432/learnbuddy
+      - DATABASE_URL=postgresql://user:password@db:5432/studyflow
       # NEW: Tell the transformers library where to save models
       - TRANSFORMERS_CACHE=/app/model_cache 
     volumes:
@@ -23,7 +23,7 @@ services:
       # IMPORTANT: For a real project, these would be secrets!
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=learnbuddy
+      - POSTGRES_DB=studyflow
     volumes:
       # This part is crucial. It creates a special volume to make sure your
       # database data is SAVED even if you stop and restart the container.

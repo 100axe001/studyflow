@@ -26,14 +26,16 @@ from sentence_transformers import SentenceTransformer, util
 
 # --- Basic App Setup ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-app = FastAPI(title="LearnBuddy AI Engine", version="1.0.0")
+app = FastAPI(title="StudyFlow AI Engine", version="1.0.0")
 
 origins = [ "http://localhost", "http://localhost:5500", "http://127.0.0.1:5500" ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    # Bearer-token auth is used (no cookies), so credentialed CORS is not needed.
+    # Keeping this False is what makes the "*" wildcard origin valid for browsers.
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -122,10 +124,6 @@ class AdminStats(BaseModel):
     total_questions: int
     total_answers_submitted: int
     questions_by_difficulty: dict
-
-# --- Load Similarity Model on Startup ---
-similarity_model = SentenceTransformer('all-MiniLM-L6-v2')
-
 
 # --- Achievement Helper Function (Unchanged) ---
 def check_and_award_achievements(user_id: int, conn, cur):

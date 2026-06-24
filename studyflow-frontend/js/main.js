@@ -1,5 +1,5 @@
 const API_BASE_URL = 'http://localhost:8000';
-function getToken() { return localStorage.getItem('learnbuddy_token'); }
+function getToken() { return localStorage.getItem('studyflow_token'); }
 function showStatus(message, isError = false) {
     const el = document.getElementById('status-notification') || document.createElement('div');
     if (!el.id) {
