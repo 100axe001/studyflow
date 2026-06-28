@@ -69,7 +69,7 @@ cd studyflow
 ### 2. Build and start the stack
 
 ```bash
-docker-compose up --build -d
+docker-compose up --build
 ```
 
 This starts the StudyFlow API and a PostgreSQL database.

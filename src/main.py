@@ -932,3 +932,98 @@ def get_hub_summary(current_user: User = Depends(get_current_user)):
         "goals": goals,
         "pomodoro_stats": pomodoro_stats,
     }
+
+
+# ============================================================
+# StudyFlow v2 — Onboarding Features
+# ============================================================
+
+class OnboardingSubmit(BaseModel):
+    display_name:    Optional[str] = None
+    student_type:    Optional[str] = None
+    college_name:    Optional[str] = None
+    degree:          Optional[str] = None
+    study_year:      Optional[str] = None
+    branch:          Optional[str] = None
+    exam_name:       Optional[str] = None
+    exam_date:       Optional[date] = None
+    learning_topic:  Optional[str] = None
+    learning_goal:   Optional[str] = None
+    learning_reason: Optional[str] = None
+    daily_minutes:   Optional[int] = 60
+    subjects:        Optional[List[str]] = []
+
+
+@app.get("/onboarding/status", tags=["Onboarding"])
+def get_onboarding_status(current_user: User = Depends(get_current_user)):
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    try:
+        cur.execute("SELECT is_onboarded, display_name FROM users WHERE id = %s", (current_user.id,))
+        row = cur.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="User not found")
+        return {
+            "is_onboarded": bool(row["is_onboarded"]),
+            "display_name": row["display_name"]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cur.close()
+        conn.close()
+
+
+@app.post("/onboarding", tags=["Onboarding"])
+def complete_onboarding(data: OnboardingSubmit, current_user: User = Depends(get_current_user)):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    try:
+        update_dict = data.model_dump(exclude_unset=True)
+        subjects = update_dict.pop("subjects", None)
+        
+        update_fields = ["is_onboarded = TRUE"]
+        params = []
+        for col, val in update_dict.items():
+            if val is not None:
+                update_fields.append(f"{col} = %s")
+                params.append(val)
+                
+        params.append(current_user.id)
+        
+        query = f"UPDATE users SET {', '.join(update_fields)} WHERE id = %s"
+        cur.execute(query, params)
+        
+        if subjects:
+            colors = ['#7C3AED','#6366F1','#F59E0B','#16A34A','#EF4444','#EC4899','#0EA5E9','#14B8A6']
+            for i, subj in enumerate(subjects):
+                color = colors[i % len(colors)]
+                cur.execute(
+                    "INSERT INTO subjects (user_id, name, color) VALUES (%s, %s, %s)",
+                    (current_user.id, subj, color)
+                )
+        
+        cur.execute("UPDATE users SET xp = xp + 50 WHERE id = %s", (current_user.id,))
+        conn.commit()
+        return {"success": True, "xp_earned": 50}
+    except Exception as e:
+        conn.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cur.close()
+        conn.close()
+
+
+@app.get("/subjects", tags=["Subjects"])
+def get_subjects(current_user: User = Depends(get_current_user)):
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    try:
+        cur.execute("SELECT id, name, color FROM subjects WHERE user_id = %s ORDER BY created_at ASC", (current_user.id,))
+        rows = cur.fetchall()
+        return [dict(r) for r in rows]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cur.close()
+        conn.close()
